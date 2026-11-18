@@ -12,13 +12,12 @@ A trip planer which contains several functions that help in organising, counting
 | Error Handling | `Activities::describe()= ''` throw `std::inavlid_argument` | `description` of an `Activity` cannot be empty |
 
 
+`Class Diagram`
 
-## Class Diagram
-
-```Mermaid
+```mermaid
 classDiagram
     class Plan {
-        +int planid
+        +int plan_id
         +int version
         +string destination
         +string author
@@ -27,13 +26,29 @@ classDiagram
     }
 
     class Attraction {
-        +string name
-        +int opening_time
-        +int closing_time
-        +double cost
-        +string description
+        +double rating
+        
+        +describe_activity() string
+    }
 
-        +describe_attraction() string
+    class Food {
+        +string type
+        +string cuisine
+
+        +describe_activity() string
+    }
+    class Hotel {
+        +int nights
+        +int stars
+
+        +describe_activity() string
+    }
+    class Transport {
+        +string vehicle
+        +double cost
+        +double duration
+
+        +describe_transport() string
     }
 
     class Activity {
@@ -51,7 +66,7 @@ classDiagram
         +double exchanged_budget
         +double spendings
         +vector~Activity~ activities
-        +vector~Currencies~ currencies
+        +vector~Currency~ currencies
 
         +count_spendings() double
         +describe_budget() string
@@ -65,8 +80,24 @@ classDiagram
         +exchange() double
         +describe_currency() string
     }
+    class Timetable {
+        +vector~Activity~
+        +vector~Transport~
+        
+        +sort_by_time() : vector<string>
+    }
+    class SaveFile {
+        +string file_name
+        
+        +save_file() : bool
+    }
 
-    Attraction <|-- Activity
+    Activity <|-- Attraction
+    Activity <|-- Food
+    Activity <|-- Hotel
     Budget o-- Activity
     Budget o-- Currency
+    Budget o-- Transport
+    Timetable o-- Activity
+    Timetable o--Transport
 ```
