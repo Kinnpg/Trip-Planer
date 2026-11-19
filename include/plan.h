@@ -1,9 +1,8 @@
 
-#ifndef TRIP_PLANER_PLAN_H
-#define TRIP_PLANER_PLAN_H
+#ifndef TRIP_PLANER_INCLUDE_PLAN_H
+#define TRIP_PLANER_INCLUDE_PLAN_H
 
 #include <string>
-#include <vector>
 
 // ---------- Plan ----------
 class Plan {
@@ -18,4 +17,4 @@ public:
     std::string describe_plan() const;
 };
 
-#endif //TRIP_PLANER_PLAN_H
+#endif //TRIP_PLANER_INCLUDE_PLAN_H
