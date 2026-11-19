@@ -3,7 +3,7 @@
 
 int main()
 {
-    Plan p11(1,1,"Norway","Kinga");
-    std::cout << p11.destination << std::endl;
+    std::cout << "project name : Trip_Planer" << std::endl;
     return 0;
+
 }
