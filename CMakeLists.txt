@@ -1,11 +1,11 @@
 cmake_minimum_required(VERSION 3.14)
-project(Trp-Planer)
+project(Trip-Planer)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_library(plan_lib
-        plan.cpp)
+        source/plan.cpp)
 target_include_directories(plan_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
 include(FetchContent)
@@ -21,7 +21,7 @@ add_executable(tests
 target_link_libraries(tests PRIVATE plan_lib Catch2::Catch2WithMain)
 
 add_executable(trip_planer main.cpp)
-target_link_libraries(trip_planer PRIVATE trip_lib)
+target_link_libraries(trip_planer PRIVATE plan_lib)
 
 enable_testing()
 add_test(NAME tests COMMAND tests)
