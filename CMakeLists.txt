@@ -4,10 +4,8 @@ project(Trp-Planer)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_library(plan_lib plan.cpp
-        plan.h
-        main.cpp
-        tests/tests.cpp)
+add_library(plan_lib
+        plan.cpp)
 target_include_directories(plan_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
 include(FetchContent)
@@ -18,11 +16,11 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(Catch2)
 
-add_executable(tests tests/tests.cpp
+add_executable(tests
         tests/tests.cpp)
 target_link_libraries(tests PRIVATE plan_lib Catch2::Catch2WithMain)
-add_executable(trip_planer main.cpp
-        main.cpp)
+
+add_executable(trip_planer main.cpp)
 target_link_libraries(trip_planer PRIVATE trip_lib)
 
 enable_testing()

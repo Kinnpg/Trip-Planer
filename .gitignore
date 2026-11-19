@@ -38,10 +38,13 @@
 *.out
 *.app
 
+# IDE
+.idea/
 # Build directories
 build/
 Build/
 build-*/
+cmake-build-*/
 
 # CMake generated files
 CMakeFiles/
