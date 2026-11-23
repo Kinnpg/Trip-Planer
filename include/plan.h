@@ -12,7 +12,7 @@ public:
     std::string destination;
     std::string author;
 
-    Plan(int plan_id, int version, std::string destination, std::string author);
+    Plan(int plan_id, std::string destination, std::string author,int version = 1);
 
     std::string describe_plan() const;
 };
